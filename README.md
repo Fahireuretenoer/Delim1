@@ -1,0 +1,2 @@
+# Delim1
+Global $sStr = '' For $i = 1 To 10000000     $sStr &amp;= Chr(Random(1, 255, 1)) ; Monster string for testing. Next MsgBox(0, 'Info', 'Test String Created')  Global $sDelim = _GetDelim($sStr) MsgBox(0, 'Delim', Binary($sDelim)) ; Show control characters. MsgBox(0, 'StringInStr?', StringInStr($sStr, $sDelim))  Func _GetDelim($sTest)     Local $sDelim = Chr(1)     While StringInStr($sTest, $sDelim)         $sDelim &amp;= Chr(Random(1, 31, 1))         If 32 = StringLen($sDelim) Then Return SetError(3, 0, 0)     WEnd     Return $sDelim EndFunc
